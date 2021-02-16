@@ -20,7 +20,13 @@ const Repos = () => {
     // console.log(language);
     return total;
   }, {});
-  console.log(languages);
+  // console.log(languages);
+  languages = Object.values(languages)
+    .sort((a, b) => {
+      return b.value - a.value;
+    })
+    .slice(0, 5);
+  // console.log(languages)
   const chartData = [
     {
       label: "HTML",
@@ -39,7 +45,7 @@ const Repos = () => {
   return (
     <section className="section">
       <Wrapper className="section-center">
-        <Pie3D data={chartData} />
+        <Pie3D data={languages} />
         {/* <ExampleChart data={chartData}/> */}
       </Wrapper>
     </section>
@@ -58,7 +64,7 @@ const Wrapper = styled.div`
     grid-template-columns: 2fr 3fr;
   }
 
-  div {
+  /* div {
     width: 100% !important;
   }
   .fusioncharts-container {
@@ -67,7 +73,7 @@ const Wrapper = styled.div`
   svg {
     width: 100% !important;
     border-radius: var(--radius) !important;
-  }
+  } */
 `;
 
 export default Repos;
