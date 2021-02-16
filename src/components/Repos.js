@@ -46,7 +46,9 @@ const Repos = () => {
     <section className="section">
       <Wrapper className="section-center">
         <Pie3D data={languages} />
-        {/* <ExampleChart data={chartData}/> */}
+        <div></div>
+        <ExampleChart data={chartData}/>
+        <div></div>
       </Wrapper>
     </section>
   );
@@ -64,7 +66,7 @@ const Wrapper = styled.div`
     grid-template-columns: 2fr 3fr;
   }
 
-  /* div {
+  div {
     width: 100% !important;
   }
   .fusioncharts-container {
@@ -73,7 +75,7 @@ const Wrapper = styled.div`
   svg {
     width: 100% !important;
     border-radius: var(--radius) !important;
-  } */
+  }
 `;
 
 export default Repos;
