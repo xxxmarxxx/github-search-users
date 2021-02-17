@@ -5,7 +5,7 @@ import { GithubContext } from "../context/context";
 
 const Search = () => {
   const [user, setUser] = React.useState("");
-  const { requests, error } = React.useContext(GithubContext);
+  const { requests, error, searchGithubUser } = React.useContext(GithubContext);
   // console.log(requests);
 
   // get things from global context
@@ -14,6 +14,7 @@ const Search = () => {
     // console.log(user);
     if (user) {
       // more logic coming uo soon
+      searchGithubUser(user)
       //optional
       // setUser('')
     }
