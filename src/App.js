@@ -1,7 +1,7 @@
 import React from "react";
 import { Dashboard, Login, PrivateRoute, AuthWrapper, Error } from "./pages";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// lesson 242-265
+// lesson 242-266
 function App() {
   return (
     <Router>
