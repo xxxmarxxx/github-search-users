@@ -20,6 +20,10 @@ const GithubProvider = ({ children }) => {
   // error
   const [error, setError] = useState({ show: false, msg: "" });
 
+  const searchGithubUser = async (user) => {
+    console.log(user);
+  };
+
   // check rate
   const checkRequests = () => {
     axios(`${rootUrl}/rate_limit`)
@@ -46,7 +50,14 @@ const GithubProvider = ({ children }) => {
   // console.log('hey app loaded')
   return (
     <GithubContext.Provider
-      value={{ githubUser, repos, followers, requests, error }}
+      value={{
+        githubUser,
+        repos,
+        followers,
+        requests,
+        error,
+        searchGithubUser,
+      }}
     >
       {children}
     </GithubContext.Provider>
