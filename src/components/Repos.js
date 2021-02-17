@@ -29,8 +29,16 @@ const Repos = () => {
     .slice(0, 5);
   // console.log(languages)
 
-// most stars per language
+  // most stars per language
 
+  const mostPopular = Object.values(languages)
+    .sort((a, b) => {
+      return b.stars - b.stars;
+    })
+    .map((item) => {
+      return { ...item, value: item.stars };
+    }).slice(0,5);
+  console.log(mostPopular);
 
   const chartData = [
     {
@@ -52,7 +60,7 @@ const Repos = () => {
       <Wrapper className="section-center">
         <Pie3D data={mostUsed} />
         <div></div>
-        <Doughnut2D data={chartData} />
+        <Doughnut2D data={mostPopular} />
         <div></div>
       </Wrapper>
     </section>
