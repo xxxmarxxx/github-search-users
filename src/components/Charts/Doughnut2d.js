@@ -27,9 +27,9 @@ const ChartComponent = ({data}) => {
       // Chart Configuration
       chart: {
         caption: "Starts per Language",
-        decimals:0,
+        decimals: 0,
         doughnutRadius:"45%",
-        showPercentValues:0,
+        showPercentValues: 0,
         theme:'candy',
        
       },
