@@ -33,7 +33,7 @@ const Repos = () => {
 
   const mostPopular = Object.values(languages)
     .sort((a, b) => {
-      return b.stars - b.stars;
+      return b.stars - a.stars;
     })
     .map((item) => {
       return { ...item, value: item.stars };
@@ -60,20 +60,20 @@ const Repos = () => {
   stars = Object.values(stars).slice(-5).reverse();
   forks = Object.values(forks).slice(-5).reverse();
 
-  const chartData = [
-    {
-      label: "HTML",
-      value: "13",
-    },
-    {
-      label: "CSS",
-      value: "160",
-    },
-    {
-      label: "JavaScript",
-      value: "80",
-    },
-  ];
+  // const chartData = [
+  //   {
+  //     label: "HTML",
+  //     value: "13",
+  //   },
+  //   {
+  //     label: "CSS",
+  //     value: "160",
+  //   },
+  //   {
+  //     label: "JavaScript",
+  //     value: "80",
+  //   },
+  // ];
 
   return (
     <section className="section">
