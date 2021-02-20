@@ -31,27 +31,21 @@ const GithubProvider = ({ children }) => {
     if (response) {
       setGithubUser(response.data);
       const { login, followers_url } = response.data;
-
+      // repos
       await Promise.allSettled([
-        axios(`${rootUrl}/user/${login}/repos?per_page=100`),
+        axios(`${rootUrl}/users/${login}/repos?per_page=100`),
         axios(`${followers_url}?per_page=100`),
       ]).then((results) => {
         // console.log(results);
         const [repos, followers] = results;
-        const status = "fullfiled";
-        if (repos.status === status) {
-          setRepos(repos.value.data);
+        const status = "fulfilled";
+        if(repos.status === status){
+          setRepos(repos.value.data)
         }
-        if (followers.status === status) {
-          setFollowers(followers.value.data);
+        if(followers.status === status){
+          setFollowers(followers.value.data)
         }
       }).catch(err => console.log(err));
-      // repos
-      // axios(`${rootUrl}/user/${login}/repos?per_page=100`).then((response) => setRepos(response.data));
-      // followers
-      // axios(`${followers_url}?per_page=100`).then((response) =>
-      //   setFollowers(response.data)
-      // );
     } else {
       toggleError(true, "there is no user with that username");
     }
@@ -63,7 +57,7 @@ const GithubProvider = ({ children }) => {
   const checkRequests = () => {
     axios(`${rootUrl}/rate_limit`)
       .then(({ data }) => {
-        console.log(data);
+        // console.log(data);
         let {
           rate: { remaining },
         } = data;
